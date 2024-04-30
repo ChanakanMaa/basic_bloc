@@ -2,13 +2,20 @@
 
 // import 'dart:js';
 
+import 'package:counter_num/src/bloc/app_bloc_observer.dart';
 import 'package:counter_num/src/bloc/counter_a_bloc/bloc/counter_a_bloc.dart';
 import 'package:counter_num/src/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
-  runApp(const MyApp());
+  // runApp(const MyApp());
+  BlocOverrides.runZoned(
+    () {
+      runApp(const MyApp());
+    },
+    blocObserver: AppBlocObserver(),
+  );
 }
 
 class MyApp extends StatelessWidget {

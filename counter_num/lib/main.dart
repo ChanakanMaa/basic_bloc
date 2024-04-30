@@ -1,6 +1,6 @@
 // สร้าง higher component/widget มาหุ้มตัว MaterialApp เพื่อจะ BLoC statement ให้ component ทุกตัวที่อยู่ใต้ root สามารถเข้าถึงได้
 
-import 'dart:js';
+// import 'dart:js';
 
 import 'package:counter_num/src/bloc/counter_a_bloc/bloc/counter_a_bloc.dart';
 import 'package:counter_num/src/pages/home_page.dart';

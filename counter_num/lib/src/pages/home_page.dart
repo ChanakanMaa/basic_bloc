@@ -28,6 +28,7 @@ class _MyHomePageState extends State<MyHomePage> {
             const Text(
               'Couter A',
             ),
+            // rebuild just this widget not all widget
             BlocBuilder<CounterABloc, CounterAState>(
               builder: (context, state) {
                 return Text(
@@ -43,7 +44,9 @@ class _MyHomePageState extends State<MyHomePage> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(
-            onPressed: () {},
+            // ทำการเรียกให้เกิด event ที่ไฟล์ counter_a_event.dart
+            // เป็นการบอกว่าจะ read BLoC อะไร and .add() เพื่อระบุ event
+            onPressed: () => context.read<CounterABloc>().add(CounterAEventReset()),
             tooltip: 'Reset',
             child: const Icon(Icons.restore),
           ),
@@ -51,7 +54,9 @@ class _MyHomePageState extends State<MyHomePage> {
             height: 10,
           ),
           FloatingActionButton(
-            onPressed: () {},
+            // ทำการเรียกให้เกิด event ที่ไฟล์ counter_a_event.dart
+            // เป็นการบอกว่าจะ read BLoC อะไร and .add() เพื่อระบุ event
+            onPressed: () => context.read<CounterABloc>().add(CounterAEventAdd()),
             tooltip: 'Add',
             child: const Icon(Icons.add),
           ),

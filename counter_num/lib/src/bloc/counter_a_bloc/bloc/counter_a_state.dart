@@ -19,6 +19,13 @@ class CounterAState extends Equatable {
     return CounterAState(count: count ?? this.count);
   }
 
+  // เปลี่ยนตัวแปรชื่อ ที่ track AppBlocObserver
+  @override
+  String toString() {
+    // return super.toString();
+    return 'count: $count';
+  }
+
   @override
   // เชื่อมโยงกับ equatable ว่าจะแทรคการปป. state ตัวแปรตัวไหนบ้าง
   // ตัวแปรไหนที่ต้องอัพเดท UI ให้ใส่ตัวแปร state นั้น

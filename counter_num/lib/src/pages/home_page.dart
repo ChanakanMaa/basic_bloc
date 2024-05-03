@@ -1,3 +1,4 @@
+import 'package:counter_num/src/app_route.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -10,7 +11,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  // int _counter = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +19,12 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
+        actions: [
+          IconButton(
+            onPressed: () => Navigator.pushNamed(context, AppRoute.another),
+            icon: const Icon(Icons.navigate_next),
+          ),
+        ],
       ),
       body: Center(
         child: Column(
@@ -37,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(
-            onPressed: (){},
+            onPressed: () {},
             tooltip: 'Reset',
             child: const Icon(Icons.restore),
           ),
@@ -45,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
             height: 10,
           ),
           FloatingActionButton(
-            onPressed: (){},
+            onPressed: () {},
             tooltip: 'Add',
             child: const Icon(Icons.add),
           ),

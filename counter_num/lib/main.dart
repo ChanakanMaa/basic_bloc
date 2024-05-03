@@ -1,3 +1,4 @@
+import 'package:counter_num/src/app_route.dart';
 import 'package:counter_num/src/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      routes: AppRoute().getAll,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,

@@ -24,7 +24,7 @@ class _AnotherPageState extends State<AnotherPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'Couter A',
+              'Couter B',
             ),
             Text(
               '$_counter',

@@ -1,6 +1,5 @@
-import 'package:counter_num/src/bloc/counter_a_bloc/bloc/counter_a_bloc.dart';
+import 'package:counter_num/src/app_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -12,7 +11,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // int _counter = 0;
+  int _counter = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +19,12 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
+        actions: [
+          IconButton(
+            onPressed: () => Navigator.pushNamed(context, AppRoute.another),
+            icon: const Icon(Icons.navigate_next),
+          ),
+        ],
       ),
       body: Center(
         child: Column(
@@ -28,14 +33,9 @@ class _MyHomePageState extends State<MyHomePage> {
             const Text(
               'Couter A',
             ),
-            // rebuild just this widget not all widget
-            BlocBuilder<CounterABloc, CounterAState>(
-              builder: (context, state) {
-                return Text(
-                  '${state.count}',
-                  style: Theme.of(context).textTheme.headlineMedium,
-                );
-              },
+            Text(
+              '$_counter',
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
         ),
@@ -44,9 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(
-            // ทำการเรียกให้เกิด event ที่ไฟล์ counter_a_event.dart
-            // เป็นการบอกว่าจะ read BLoC อะไร and .add() เพื่อระบุ event
-            onPressed: () => context.read<CounterABloc>().add(CounterAEventReset()),
+            onPressed: () {},
             tooltip: 'Reset',
             child: const Icon(Icons.restore),
           ),
@@ -54,9 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
             height: 10,
           ),
           FloatingActionButton(
-            // ทำการเรียกให้เกิด event ที่ไฟล์ counter_a_event.dart
-            // เป็นการบอกว่าจะ read BLoC อะไร and .add() เพื่อระบุ event
-            onPressed: () => context.read<CounterABloc>().add(CounterAEventAdd()),
+            onPressed: () {},
             tooltip: 'Add',
             child: const Icon(Icons.add),
           ),
